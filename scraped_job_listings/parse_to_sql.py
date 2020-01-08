@@ -9,18 +9,19 @@ conn.autocommit = True
 cur = conn.cursor()
 #cur.execute('DROP DATABASE IF EXISTS dsjob;')
 #cur.execute('CREATE DATABASE dsjob;')
-cur.execute('DROP TABLE IF EXISTS indeed;')
-query='''CREATE TABLE IF NOT EXISTS indeed (
-            job_jk varchar(16) default NUll,
-            job_title varchar(200) NOT NULL,
-            job_location varchar(110) default NULL,
-            company_name varchar(120) default NULL,
-            salary varchar(130) default NULL,
-            description text default NULL,
-            PRIMARY KEY (job_jk)
-        );'''
-cur.execute(query)
-conn.commit()
+#cur.execute('DROP TABLE IF EXISTS indeed;')
+
+# query='''CREATE TABLE IF NOT EXISTS indeed (
+#             job_jk varchar(16) default NUll,
+#             job_title varchar(200) NOT NULL,
+#             job_location varchar(110) default NULL,
+#             company_name varchar(120) default NULL,
+#             salary varchar(130) default NULL,
+#             description text default NULL,
+#             PRIMARY KEY (job_jk)
+#         );'''
+# cur.execute(query)
+# conn.commit()
 
 all_lines=[]
 new_job_line_no=[]
@@ -29,7 +30,7 @@ new_job_line_no=[]
 directory = os.fsencode('data')
 for file in os.listdir(directory):
      filename = os.fsdecode(file)
-     if filename.startswith("job_summary"):
+     if filename.startswith("major_city_job_summary"):
          #print(os.path.join(str(directory), filename))
          with open('data/'+filename) as f:
              print(filename)
@@ -53,6 +54,15 @@ new_job_line_no.append(counter)
 
 job_with_salary_counter=0
 job_jk_set=set()
+
+
+def parse_job_page():
+    '''
+    The input is a BeautifulSoup object
+    '''
+    return 
+
+
 for e in range(len(new_job_line_no)-1):
     job_page_list_of_lines =all_lines[new_job_line_no[e]: new_job_line_no[e+1]]
     soup = BeautifulSoup(''.join(job_page_list_of_lines), 'html.parser')
