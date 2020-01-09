@@ -1,0 +1,338 @@
+Boston, MA 02110 80000.0
+Cambridge, MA 02138 56000.0
+St. Louis, MO 95949.5
+Ann Arbor, MI 48109 60000.0
+Boston, MA 02101 152750.0
+Ann Arbor, MI 48109 72500.0
+Ann Arbor, MI 48109 50004.0
+Detroit, MI 65435.5
+Detroit, MI 48226 101279.5
+Detroit, MI 78802.5
+Warren, MI 97500.0
+Warren, MI 97500.0
+Minneapolis, MN 122500.0
+Minneapolis, MN 97500.0
+Minneapolis, MN 55416 127500.0
+Minneapolis, MN 55416 112500.0
+St. Louis, MO 63110 140000.0
+St. Louis, MO 63144 134500.0
+Arnold, MO 121057.0
+Princeton, NJ 130000.0
+Kansas City, MO 64105 212500.0
+Kansas City, MO 64105 70000.0
+St. Louis, MO 63130 54974.5
+Columbia, MO 53738.0
+St. Louis, MO 63130 91686.5
+Helena, MT 59601 67209.5
+Missoula, MT 85000.0
+Omaha, NE 100000.0
+Henderson, NV 89002 60000.0
+Hanover, NH 67950.0
+Portsmouth, NH 03801 215250.0
+Hanover, NH 73500.0
+Portsmouth, NH 03801 109350.0
+Fort Lee, NJ 07024 107500.0
+Monmouth Junction, NJ 08852 65000.0
+Princeton, NJ 180000.0
+Monmouth Junction, NJ 60000.0
+Parsippany, NJ 70000.0
+Parsippany, NJ 70000.0
+Fort Lee, NJ 07024 100000.0
+Fort Lee, NJ 07024 107500.0
+Township of South Brunswick, NJ 60000.0
+Fort Lee, NJ 07024 62500.0
+New York, NY 10467 70370.0
+Los Alamos, NM 87544 98900.0
+Albuquerque, NM 87500.0
+Los Alamos, NM 87544 98900.0
+Los Alamos, NM 87544 89900.0
+Los Alamos, NM 87544 129800.0
+Santa Fe, NM 65088.5
+New York, NY 10013 57500.0
+New York, NY 10467 70370.0
+New York, NY 10019 100000.0
+New York, NY 10018 122500.0
+Valley Cottage, NY 10989 175000.0
+New York, NY 57500.0
+Albany, NY 155000.0
+New York, NY 75000.0
+Brooklyn, NY 11220 87500.0
+Albany, NY 12224 64000.0
+New York, NY 10019 70000.0
+Brooklyn, NY 11206 75000.0
+Manhattan, NY 10005 60172.0
+New York, NY 70000.0
+New York, NY 10038 56500.0
+New York, NY 10467 70370.0
+New York, NY 10022 89000.0
+New York, NY 95000.0
+New York, NY 10019 75000.0
+Buffalo, NY 14260 77500.0
+New York, NY 85000.0
+Queens, NY 11101 67347.0
+Cheektowaga, NY 80000.0
+Smithtown, NY 11787 42500.0
+Manhattan, NY 76495.0
+Charlotte, NC 120000.0
+Raleigh, NC 62500.0
+Asheville, NC 28806 50767.0
+Asheville, NC 28806 50767.0
+Chapel Hill, NC 27599 31649.5
+Chapel Hill, NC 27599 48740.0
+Columbus, OH 50500.0
+Chapel Hill, NC 27599 49738.0
+Portland, OR 145000.0
+Columbus, OH 70000.0
+Columbus, OH 95000.0
+Patterson AFB, OH 113829.5
+Cincinnati, OH 45255 67500.0
+Mason, OH 105000.0
+Gahanna, OH 101000.0
+Gahanna, OH 85000.0
+Oklahoma City, OK 73103 75000.0
+Portland, OR 120000.0
+Portland, OR 125000.0
+Portland, OR 97204 97500.0
+Portland, OR 97204 105000.0
+Philadelphia, PA 19127 90000.0
+Portland, OR 97239 118343.0
+Portland, OR 115000.0
+Wayne, PA 70000.0
+Philadelphia, PA 19127 87500.0
+Pittsburgh, PA 15206 125000.0
+Pittsburgh, PA 15208 55500.0
+Pittsburgh, PA 100000.0
+Philadelphia, PA 19102 60000.0
+United, PA 60000.0
+Austin, TX 78702 125000.0
+Allentown, PA 62500.0
+Philadelphia, PA 70000.0
+McMurray, PA 137500.0
+McMurray, PA 75000.0
+McMurray, PA 62500.0
+Philadelphia, PA 19102 70000.0
+Providence, RI 02903 107500.0
+Mount Pleasant, SC 29464 125000.0
+Charleston, SC 105652.0
+Houston, TX 60000.0
+Brookings, SD 57006 50427.0
+Nashville, TN 37027 145000.0
+Austin, TX 78759 140000.0
+Dallas, TX 75390 57500.0
+Austin, TX 155000.0
+Dallas, TX 140000.0
+Austin, TX 78703 85000.0
+Austin, TX 78731 129000.0
+Austin, TX 78731 230000.0
+Fort Worth, TX 100000.0
+Plano, TX 72500.0
+Houston, TX 111600.0
+Houston, TX 162000.0
+Houston, TX 94860.0
+Dallas, TX 75390 75000.0
+Dallas, TX 120000.0
+Carrollton, TX 82500.0
+Irving, TX 75038 104600.0
+Austin, TX 40000.0
+Alexandria, VA 166572.5
+Southlake, TX 76092 90000.0
+Austin, TX 78745 110000.0
+Fort Worth, TX 80000.0
+Falls Church, VA 110000.0
+Austin, TX 78731 156000.0
+Galveston, TX 77550 101231.0
+Salt Lake City, UT 84123 105000.0
+Galveston, TX 77550 90077.0
+Salt Lake City, UT 84123 127500.0
+Hill AFB, UT 59154.0
+Salt Lake City, UT 84112 100000.0
+Salt Lake City, UT 84123 55000.0
+Salt Lake City, UT 48500.0
+Salt Lake City, UT 102974.5
+Salt Lake City, UT 84112 80350.0
+Charlottesville, VA 120000.0
+McLean, VA 130000.0
+Reston, VA 20190 60000.0
+Williamsburg, VA 33505.0
+Springfield, VA 99250.5
+McLean, VA 99250.5
+Dallas, TX 126000.0
+Chesterfield, VA 61120.5
+Richmond, VA 108369.0
+McLean, VA 110000.0
+Chantilly, VA 95910.0
+Springfield, VA 22150 127500.0
+Charlottesville, VA 97500.0
+Richmond, VA 23219 95301.0
+Herndon, VA 20170 70000.0
+Arlington, VA 48162.5
+Tysons Corner, VA 110000.0
+Springfield, VA 140000.0
+McLean, VA 22101 132500.0
+Arlington, VA 90000.0
+Alexandria, VA 22314 170000.0
+Atlanta, GA 105000.0
+Richmond, VA 115000.0
+Lovingston, VA 22949 57500.0
+Atlanta, GA 60000.0
+Alexandria, VA 85000.0
+Reston, VA 110000.0
+Washington, DC 58000.0
+Charlottesville, VA 105393.5
+Sterling, VA 106000.0
+Boston, MA 85000.0
+Herndon, VA 20171 145000.0
+Seattle, WA 143074.0
+Seattle, WA 157500.0
+Seattle, WA 115000.0
+Bellevue, WA 98004 175000.0
+Orondo, WA 71500.0
+Cambridge, MA 60000.0
+Boston, MA 135000.0
+Tumwater, WA 87036.0
+Bellevue, WA 98004 65000.0
+Seattle, WA 98101 119300.5
+Alto, WA 75000.0
+Olympia, WA 87023.0
+Lacey, WA 68694.0
+Lacey, WA 75828.0
+Olympia, WA 72058.0
+Olympia, WA 98501 72058.0
+Washington, DC 97015.0
+Washington, DC 20004 118064.0
+Madison, WI 94861.5
+Madison, WI 117500.0
+Madison, WI 85000.0
+Milwaukee, WI 53201 120000.0
+Laramie, WY 82071 50004.0
+Orlando, FL 32808 65000.0
+Ann Arbor, MI 48109 45000.0
+Patterson AFB, OH 89833.5
+Austin, TX 97500.0
+Houston, TX 97500.0
+Boston, MA 02108 142610.5
+Beltsville, MD 85887.0
+Reston, VA 160000.0
+West McLean, VA 200000.0
+Framingham, MA 01701 67500.0
+Norwell, MA 02061 102500.0
+Boston, MA 02101 113750.0
+Boston, MA 02101 145300.0
+Boston, MA 02101 123900.0
+Boston, MA 02110 67500.0
+Burlington, MA 01803 75000.0
+Boston, MA 02110 80000.0
+San Francisco, CA 94107 10000.0
+Boston, MA 02101 152750.0
+Boston, MA 125000.0
+Germantown, MD 20874 82500.0
+Seattle, WA 98101 173900.0
+Atlanta, GA 110000.0
+Los Angeles, CA 90064 165000.0
+Austin, TX 78731 156000.0
+Los Angeles, CA 140000.0
+Los Angeles, CA 90000.0
+Los Angeles, CA 90079 65000.0
+Los Angeles, CA 90000.0
+Los Angeles, CA 90017 68694.0
+Santa Monica, CA 90405 150000.0
+Los Angeles, CA 157500.0
+Washington, DC 20009 112500.0
+Washington, DC 105000.0
+Washington, DC 105000.0
+Fort Meade, MD 20755 95107.0
+Fort Meade, MD 20755 79193.5
+Ashburn, VA 99500.0
+Fort Meade, MD 20755 79193.5
+Arlington, VA 22201 90000.0
+College Park, MD 92500.0
+Washington, DC 125000.0
+Fort Meade, MD 20755 95107.0
+Fort Meade, MD 20755 95107.0
+Washington, DC 90000.0
+Fort Meade, MD 20755 66134.5
+Daly City, CA 94014 212500.0
+Manhattan, NY 73873.5
+Manhattan, NY 82653.0
+Manhattan, NY 69283.5
+Manhattan, NY 104015.5
+New York, NY 157500.0
+Manhattan, NY 10007 83250.0
+Boston, MA 02101 145200.0
+Boston, MA 02110 65000.0
+Boston, MA 114500.0
+East Cambridge, MA 02141 50000.0
+Boston, MA 02109 44579.0
+Boston, MA 02109 89386.0
+Boston, MA 112500.0
+Atlanta, GA 30301 130000.0
+Atlanta, GA 80000.0
+Houston, TX 77079 180000.0
+Houston, TX 100000.0
+Oak Brook, IL 170000.0
+Plano, TX 75024 135000.0
+Manhattan, NY 65217.5
+New York, NY 10032 72576.0
+Dallas, TX 75206 50000.0
+Plano, TX 75074 70000.0
+Dallas, TX 80000.0
+Chicago, IL 95000.0
+Chicago, IL 92500.0
+Gwinnett County, GA 76788.0
+Austin, TX 78746 120000.0
+Washington, DC 90000.0
+Austin, TX 78731 214000.0
+Washington, DC 104475.0
+Austin, TX 80000.0
+Washington, DC 93022.5
+Washington, DC 67069.0
+Washington, DC 139512.5
+Washington, DC 66537.5
+Washington, DC 97015.0
+Washington, DC 20009 75000.0
+Washington, DC 50470.0
+Washington, DC 46809.0
+Washington, DC 49232.5
+Washington, DC 61926.0
+Washington, DC 49232.5
+Washington, DC 62940.5
+Washington, DC 125762.0
+Washington, DC 60000.0
+Washington, DC 78294.0
+Reston, VA 165000.0
+Washington, DC 94701.5
+Chantilly, VA 180000.0
+Beltsville, MD 85887.0
+Bethesda, MD 80000.0
+Austin, TX 78759 140000.0
+Bellevue, WA 98004 175000.0
+Bellevue, WA 98004 65000.0
+Seattle, WA 98107 115000.0
+Berkeley, CA 94720 56034.0
+New York, NY 10016 125000.0
+New York, NY 10065 325000.0
+New York, NY 10014 120000.0
+New York, NY 120000.0
+San Francisco, CA 95000.0
+San Francisco, CA 275000.0
+San Francisco, CA 105000.0
+San Francisco, CA 23000.0
+Oakland, CA 94612 135000.0
+San Francisco, CA 205000.0
+San Francisco, CA 160000.0
+San Francisco, CA 180000.0
+San Francisco, CA 200000.0
+Redwood City, CA 147500.0
+San Francisco, CA 200000.0
+San Francisco, CA 187500.0
+San Francisco, CA 147500.0
+San Francisco, CA 250000.0
+San Francisco, CA 120000.0
+San Francisco, CA 130000.0
+San Francisco, CA 130000.0
+San Francisco, CA 94102 150000.0
+San Carlos, CA 94070 110000.0
+San Francisco, CA 94105 157500.0
+Oakland, CA 94607 85000.0
+San Francisco, CA 105000.0
+San Francisco, CA 94110 63500.0
