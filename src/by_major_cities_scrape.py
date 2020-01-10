@@ -16,17 +16,20 @@ conn = pg2.connect(dbname='dsjob', host='localhost',
 conn.autocommit = True
 cur = conn.cursor()
 
-# cur.execute('DROP TABLE IF EXISTS refine_result;')
-# query='''CREATE TABLE IF NOT EXISTS refine_result (
-#             city varchar(50) NOT NUll,
-#             state varchar(2) NOT NULL,
-#             by_category varchar(50) NOT NULL,
-#             category varchar(50) NOT NULL,
-#             counts int NOT NULL,
-#             PRIMARY KEY (city, state, by_category, category)
-#         );'''
-# cur.execute(query)
-# conn.commit()
+#cur.execute('DROP TABLE IF EXISTS refine_result2;')
+query='''CREATE TABLE IF NOT EXISTS refine_result2 (
+            city varchar(50) NOT NUll,
+            state varchar(2) NOT NULL,
+            by_category varchar(50) NOT NULL,
+            category varchar(50) NOT NULL,
+            counts int NOT NULL,
+            PRIMARY KEY (city, state, by_category, category)
+        );'''
+cur.execute(query)
+cur.execute("ALTER TABLE refine_result2 ALTER category TYPE varchar(100);")
+
+
+conn.commit()
 '''
 Scrape the jobs by states in addition to
 the jobs already scraped nationwide
@@ -195,7 +198,56 @@ def save_counts_salary_by_city(city, state):
             'by_jobtype':refine_by_jobtype,
             'by_company': refine_by_company}
 
+def save_counts_salary_by_city2(city, state):
+    time.sleep(np.random.randint(30,50))
+    URL = 'https://www.indeed.com/jobs?q=(%22data+science%22+or+%22data+scientist%22)&l={},+{}&radius=5'.format(city,state)
+    print(URL)
+    soup = BeautifulSoup(urllib.request.urlopen(URL).read(), 'html.parser')    
+    e = soup.findAll('div', {'id':'SALARY_rbo'}) #find('div', {'id':'refineresults'})
+    temps=BeautifulSoup(str(e), 'html.parser')
+    s = temps.findAll('span', {'class':'rbLabel'})
+    c = temps.findAll('span', {'class':'rbCount'})
+    s_list, c_list=[],[]
+    for ss in s:
+        salary= re.sub("[^0-9]", "", ss.get_text())
+        salary= int(salary)
+        s_list.append(salary)
+    for cc in c:
+        count = re.sub("[^0-9]", "", cc.get_text())
+        count = int(count)
+        c_list.append(count)
+    refine_by_salary=zip(s_list, c_list)
 
+    e = soup.findAll('div', {'id':'rb_Job Type'}) #find('div', {'id':'refineresults'})
+    temps=BeautifulSoup(str(e), 'html.parser')
+    s = temps.findAll('span', {'class':'rbLabel'})
+    c = temps.findAll('span', {'class':'rbCount'})
+    s_list, c_list=[],[]
+    for ss in s:
+        s_list.append(ss.get_text())
+    for cc in c:
+        count = re.sub("[^0-9]", "", cc.get_text())
+        count = int(count)
+        c_list.append(count)
+    refine_by_jobtype=zip(s_list, c_list)
+
+  
+    e = soup.findAll('div', {'id':'rb_Company'}) #find('div', {'id':'refineresults'})
+    temps=BeautifulSoup(str(e), 'html.parser')
+    s = temps.findAll('span', {'class':'rbLabel'})
+    c = temps.findAll('span', {'class':'rbCount'})
+    s_list, c_list=[],[]
+    for ss in s:
+        s_list.append(ss.get_text())
+    for cc in c:
+        count = re.sub("[^0-9]", "", cc.get_text())
+        count = int(count)
+        c_list.append(count)
+    refine_by_company=zip(s_list, c_list)
+
+    return {'by_salary': refine_by_salary, 
+            'by_jobtype':refine_by_jobtype,
+            'by_company': refine_by_company}
 
 def savejkbycity(city, state, exp_level):
     '''
@@ -240,20 +292,25 @@ scraped_f.close()
 major_cities= [('New York','NY') , ('San Francisco','CA'), ('Seattle','WA'), 
     ('Chicago','IL'), ('Boston', 'MA'), ('Washington','DC'), ('Austin', 'TX'), 
     ('Atlanta','GA'), ('Los Angeles', 'CA'), ('Arlington', 'VA'), ('Dallas', 'TX'), ('Cambridge', 'MA'),
-    ('Houston', 'TX'), ('Mc Lean', 'VA')]
-#major_citiest= major_cities[1,4,5,10,11,12,13]]
-major_cities = [major_cities[5]]
+    ('Houston', 'TX'), ('Mc Lean', 'VA'), ('Redwood City', 'CA'), ('Mountain View', 'CA')]
+cur.execute("SELECT DISTINCT(city) FROM refine_result2;")
+scrapped_cities = [item[0] for item in cur]
+print(scrapped_cities)
+#major_citiest= major_cities[1:]
+#major_cities = [major_cities[0]]
 for e in major_cities:
     city, state = e
     city_search= "+".join(city.split(" "))
-    d=save_counts_salary_by_city(city_search, state)
-    for by_category in d:
-        print (by_category)
-        for v in d[by_category]:
-            print(v)
-            category, count = v
-            cur.execute("INSERT INTO refine_result(city, state, by_category, category, counts) VALUES (%s, %s, %s, %s, %s) ON CONFLICT DO NOTHING", [city, state, by_category, category, count])
-            conn.commit()
+    if not city in scrapped_cities: 
+        print(city+ " not scrapped")
+        d=save_counts_salary_by_city2(city_search, state)
+        for by_category in d:
+            print (by_category)
+            for v in d[by_category]:
+                print(v)
+                category, count = v
+                cur.execute("INSERT INTO refine_result2(city, state, by_category, category, counts) VALUES (%s, %s, %s, %s, %s) ON CONFLICT DO NOTHING", [city, state, by_category, category, count])
+                conn.commit()
 cur.close()
 conn.close()
 

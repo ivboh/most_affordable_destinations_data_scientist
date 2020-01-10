@@ -116,7 +116,8 @@ conn.commit()
 major_cities= [('New York','NY') , ('San Francisco','CA'), ('Seattle','WA'), 
     ('Chicago','IL'), ('Boston', 'MA'), ('Washington','DC'), ('Austin', 'TX'), 
     ('Atlanta','GA'), ('Los Angeles', 'CA'), ('Arlington', 'VA'), ('Dallas', 'TX'), ('Cambridge', 'MA'),
-    ('Houston', 'TX'), ('Mc Lean', 'VA')]
+    ('Houston', 'TX'), ('Mc Lean', 'VA'), ('Redwood City', 'CA'), ('Mountain View', 'CA')]
+major_cities = major_cities[-2:]
 
 for e in major_cities:
     city, state = e
