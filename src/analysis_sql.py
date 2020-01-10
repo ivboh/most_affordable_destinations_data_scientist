@@ -5,8 +5,9 @@ import psycopg2 as pg2
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-from scipy.stats import ttest_ind, ttest_ind_from_stats
-
+from scipy.stats import ttest_ind, ttest_ind_from_stats, probplot
+import pylab
+import statsmodels.stats.api as sms
 
 def average_salary(salary_range_string):
     mean = np.mean([int(e.strip().replace("$","").replace("," , "")) for e in salary_range_string.replace("a year", "").replace("From", "").replace("Up to","").split("-")])
@@ -257,13 +258,46 @@ for i, k in enumerate(salary_indeed_sample_dict):
     else:
         b = b + [e*100/living_cost_dict[k] for e in salary_indeed_sample_dict[k]]
 
-print("list a:", a)
-print("list b:", b)
+print("list of adjusted salary from cities in texas:", a)
+print("list of adjusted salaries from cities outside texas:", b)
+
+print("Variance of list in Texas: ", np.var(a))
+print("Variance outside Texas:", np.var(b))
+
+fig,ax = plt.subplots()
+res = probplot(a, dist='norm', plot=plt)
+ax.set_title("Probplot for adjuted salary in Texas")
+plt.show()
+
+fig, ax = plt.subplots()
+res = probplot(b, dist='norm', plot=plt)
+ax.set_title("Probplot for adjuted salary outside Texas")
+plt.show()
+
+a_shifted=[e-30949.668 for e in a]
 
 t, p = ttest_ind(a, b, equal_var=False)
 print("ttest_ind:            t = %g  p = %g" % (t, p))
 
 #ttest_ind:            t = 5.71367  p = 1.97862e-06
+# one tail p = p/2
+
+t, p = ttest_ind([e-30000 for e in a], b, equal_var=False)
+print("ttest_ind 30k:            t = %g  p = %g" % (t, p))
+t, p = ttest_ind([e-32000 for e in a], b, equal_var=False)
+print("ttest_ind 32k:            t = %g  p = %g" % (t, p))
+t, p = ttest_ind([e-33000 for e in a], b, equal_var=False)
+print("ttest_ind 33k:            t = %g  p = %g" % (t, p))
+t, p = ttest_ind([e-33000 for e in a], b, equal_var=False)
+print("ttest_ind 34k:            t = %g  p = %g" % (t, p))
+t, p = ttest_ind([e-35000 for e in a], b, equal_var=False)
+print("ttest_ind 35k:            t = %g  p = %g" % (t, p))
+t, p = ttest_ind([e-40000 for e in a], b, equal_var=False)
+print("ttest_ind 40k:            t = %g  p = %g" % (t, p))
+
+cm = sms.CompareMeans(sms.DescrStatsW(a), sms.DescrStatsW(b))
+print (cm.tconfint_diff(usevar = 'unequal'))
+
 
 plt.style.use('ggplot')
 fig,ax = plt.subplots()
