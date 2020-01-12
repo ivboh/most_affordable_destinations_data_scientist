@@ -6,6 +6,7 @@ This project is to find out the salary adjusted by the living cost at popular de
 __Conclusion:__
 The cities in Texas are (highly significantly) more affordable for data scientists than those in other states. An A/B test with significance level of 0.05 shows that the adjusted salary in Texas is $34,000 higher than the salaries outside Texas. The take home message: a data scientist need a salary rise at least $34,000 on average if move from Texas to another state.
 
+---
 
 #Intruduction: background and motivation: 
 Occassionally I hear my data scientist friends relocate, or refuse to do so, for new oppotunaties. The decision making process varies greatly, from being able to watch broadway shows every week to working with the smartest people they know of. But one factor is often among the main concerns: the affordability of the new location. The goal of my project is to find out if Texas is the most affordable place to live for data scientists and if so, can I make quantify the difference.
