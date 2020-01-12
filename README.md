@@ -8,25 +8,25 @@ The cities in Texas are (highly significantly) more affordable for data scientis
 
 ---
 
-#Intruduction: background and motivation: 
+# Intruduction: background and motivation: 
 Occassionally I hear my data scientist friends relocate, or refuse to do so, for new oppotunaties. The decision making process varies greatly, from being able to watch broadway shows every week to working with the smartest people they know of. But one factor is often among the main concerns: the affordability of the new location. The goal of my project is to find out if Texas is the most affordable place to live for data scientists and if so, can I make quantify the difference.
 
-#Hypothesis and test:
+# Hypothesis and test:
 
 
-#Methodology:
+# Methodology:
 
 
-#Result:
+# Result:
 
 
-#Data source and tools:
+# Data source and tools:
 
   Data source: indeed.com areavibes.com
   Tools: EC2 Web scraper, BeautifulSoup, Postgres, Libraries in Python for Analysis
   
-#Future work:
+# Future work:
 
-#Acknowledgements:
+# Acknowledgements:
 
-#Web app:
+# Web app:
