@@ -1,4 +1,4 @@
-# Lone Star State :  the Most Affordable Destinations for Data Scientists?
+# The Most Affordable Destinations for Data Scientists?
 
 <img src="http://alabamamaps.ua.edu/contemporarymaps/usa/basemaps/mjcityzmc.jpg">
 
