@@ -1,6 +1,6 @@
 # Lone Star State :  the Most Affordable Destinations for Data Scientists?
 
-<a href="http://alabamamaps.ua.edu/contemporarymaps/usa/basemaps/mjcityzmc.jpg">
+<img src="http://alabamamaps.ua.edu/contemporarymaps/usa/basemaps/mjcityzmc.jpg">
 
 __Abstract:__
 This project is to find out the salary adjusted by the living cost at popular destinations for data scientists. I scraped 14000+ job listings from indeed.com by Jan 02 2020, plus the cost of living index of cities in 2019 from areavibes.com. The analysis was done using two sample t-test, more specifically a A/B test to find out the lift between salaries in Texas and other states.
