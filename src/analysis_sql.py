@@ -30,23 +30,11 @@ cur = conn.cursor()
 #cur.execute("SELECT job_location,salary FROM indeed WHERE job_location LIKE '%Austin, TX%' AND salary LIKE '% a year';")
 #cur.execute("SELECT job_location,salary FROM indeed WHERE salary LIKE '% a year';")
 
-'''
-major_cities= [('New York','NY') , ('San Francisco','CA'), ('Seattle','WA'), 
-    ('Chicago','IL'), ('Boston', 'MA'), ('Washington','DC'), ('Austin', 'TX'), 
-    ('Atlanta','GA'), ('Los Angeles', 'CA'), ('Arlington', 'VA'), ('Dallas', 'TX'), ('Cambridge', 'MA'),  ('Redwood City', 'CA'), ('Mountain View', 'CA'),
-    ('Houston', 'TX'), ('Mc Lean', 'VA')]
-'''
+
 major_cities= [('New York','NY') , ('San Francisco','CA'), ('Seattle','WA'), 
     ('Chicago','IL'), ('Boston', 'MA'), ('Washington','DC'), ('Austin', 'TX'), 
     ('Atlanta','GA'), ('Los Angeles', 'CA'), ('Arlington', 'VA'), ('Dallas', 'TX'), ('Cambridge', 'MA'), 
     ('Houston', 'TX'), ('Mc Lean', 'VA')]
-
-'''
-major_cities= [('New York','NY') , ('San Francisco','CA'), ('Seattle','WA'), 
-    ('Chicago','IL'), ('Boston', 'MA'), ('Washington','DC'), ('Austin', 'TX'), 
-    ('Atlanta','GA'), ('Los Angeles', 'CA'),('Dallas', 'TX'),
-    ('Houston', 'TX')]
-'''
 
 
 scrapped_job_counts=[]
@@ -62,34 +50,23 @@ for e in major_cities:
         counter+=1
     scrapped_job_counts.append(counter)
 
+# plot the scraped job counts scraped from indeed.com
 fig = plt.figure()
 ax = fig.add_subplot()
 width = 0.35
 ind = np.arange(len(scrapped_job_counts))
-#s1 = ax.bar(ind, salary_list, width*0.5, color = 'blue')
-#s3 = ax.bar(ind+width*0.5, glassdoor_salary_list, width*0.5, color = 'cyan')
-#s2 = ax.bar(ind+width, disc_salary_list, width*0.5, color = 'r')
-
-#s4 = ax.bar(ind+width*1.5, glassdoor_salary_disc_list, width*0.5, color = 'plum')
 s1 = ax.bar(ind, scrapped_job_counts, width, color = 'blue')
-
-
 ax.set_ylabel('Job count')
 ax.set_title('No. of jobs scraped by city')
 ax.set_xticks(ind)
 ax.set_xticklabels([ ", ".join(k) for k in major_cities])
 ax.tick_params(axis = 'x', rotation = 80)
-#ax.legend((s1,s2, s3,s4) ,  ('Salary', 'Salary adjusted by living cost', 'Glass Door Salary', 'Glass Door Salay adjusted by living cost'))
-#ax.legend((s1,s2) ,  ('Indeed Salary', 'Indeed Salary adjusted by living cost', 'Glass Door Salary', 'Glass Door Salay adjusted by living cost'))
-#ax.legend(s1 ,  ('Indeed Salary', 'Indeed Salary adjusted by living cost'))
-
 fig.tight_layout()
-
 plt.show()
 
 
 
-
+### plot each sample on a scatter plot of jobs has a annual salary with detailed description on indeed 
 salary_indeed_sample_dict={}
 for e in major_cities:
     city,state =e
@@ -120,28 +97,7 @@ plt.show()
 
 
 
-for e in major_cities:
-    city,state =e
-    if city=='Mc Lean':
-        city_search = 'McLean'
-    else:
-        city_search = city
-    cur.execute("SELECT job_location,salary FROM indeed WHERE salary LIKE %s and job_location LIKE %s;",['% a year', '%{}%'.format(state)])
-    l = []
-    for item in cur.fetchall():
-        l.append(average_salary(item[1]))
-    cur.execute("SELECT job_location,salary FROM indeed WHERE salary LIKE %s and job_location LIKE %s;",['%  hour', '%{}%'.format(state)])
-    l_h = []
-    for item in cur.fetchall():
-        l_h.append(hr_rate_to_salary(item[1]))
-    print(city,state, np.round(np.mean(l)), len(l))    
-    #salary_indeed_sample_dict[(city,state)] = l
-
-
-
-
-
-
+#### Compute the average salary using the meta data from refine search result on indeed.com
 d ={}
 for e in major_cities:
     city, state = e
@@ -161,6 +117,7 @@ for e in major_cities:
     d[(city, state)]=salary_avg    
 
 
+### Read in living_cost of each city and adjust salary by cost of living index
 cur.execute("SELECT * FROM living_cost")
 living_cost_list = []
 living_cost_dict={}
@@ -172,37 +129,20 @@ for item in cur.fetchall():
         living_cost_list.append(score)
         living_cost_dict[(city,state)] = score
 
-for e in d:
-    print (e, d[e])
 
+### convert the salary before and after adjustmnt to lists for plot
 d_list = [(k, d[k][0], d[k][1]) for k in d]
 city_list = [" ,".join(e) for e,_,_ in d_list]
 salary_list = [e for _,e,_ in d_list]
 disc_salary_list = [e for _,_,e in d_list]
-#print(city_list)
-#print(salary_list)
-#print(disc_salary_list)
 
-cur.execute("SELECT * FROM glassdoor")
-glassdoor_d = {}
-for item in cur.fetchall():
-    city, salary = item
-    glassdoor_d[city] = salary 
-glassdoor_salary_list = [glassdoor_d[location[0]] for location,_,_ in d_list ]
-glassdoor_salary_disc_list = [int(e*100/c) for e,c in zip(glassdoor_salary_list, living_cost_list)]
 
-print(glassdoor_salary_list)
-
+##### Plot the salary before and after adjustment based on meta data on indeed.com
 ind = np.arange(len(city_list))
 width=0.35
 fig = plt.figure()
 ax = fig.add_subplot()
 
-#s1 = ax.bar(ind, salary_list, width*0.5, color = 'blue')
-#s3 = ax.bar(ind+width*0.5, glassdoor_salary_list, width*0.5, color = 'cyan')
-#s2 = ax.bar(ind+width, disc_salary_list, width*0.5, color = 'r')
-
-#s4 = ax.bar(ind+width*1.5, glassdoor_salary_disc_list, width*0.5, color = 'plum')
 s1 = ax.bar(ind, salary_list, width, color = 'blue')
 s2 = ax.bar(ind+width, disc_salary_list, width, color = 'r')
 
@@ -212,47 +152,46 @@ ax.set_title('Salary estimated by Indeed')
 ax.set_xticks(ind)
 ax.set_xticklabels(city_list)
 ax.tick_params(axis = 'x', rotation = 80)
-#ax.legend((s1,s2, s3,s4) ,  ('Salary', 'Salary adjusted by living cost', 'Glass Door Salary', 'Glass Door Salay adjusted by living cost'))
-#ax.legend((s1,s2) ,  ('Indeed Salary', 'Indeed Salary adjusted by living cost', 'Glass Door Salary', 'Glass Door Salay adjusted by living cost'))
 ax.legend((s1,s2) ,  ('Salary estimated by Indeed', 'Salary estimated by Indeed with living cost adjustment'))
 
 fig.tight_layout()
-
 plt.show()
 
 
 
 
+'''
+#### Read in glassdoor living cost
+cur.execute("SELECT * FROM glassdoor")
+glassdoor_d = {}
+for item in cur.fetchall():
+    city, salary = item
+    glassdoor_d[city] = salary 
+glassdoor_salary_list = [glassdoor_d[location[0]] for location,_,_ in d_list ]
+glassdoor_salary_disc_list = [int(e*100/c) for e,c in zip(glassdoor_salary_list, living_cost_list)]
+print(glassdoor_salary_list)
+
+##### plot the salary before and after adjustment using the mean salary from glassdoor.com
 fig = plt.figure()
 ax = fig.add_subplot()
-
-#s1 = ax.bar(ind, salary_list, width*0.5, color = 'blue')
 s3 = ax.bar(ind, glassdoor_salary_list, width, color = 'cyan')
-#s2 = ax.bar(ind+width, disc_salary_list, width*0.5, color = 'r')
-
 s4 = ax.bar(ind+width, glassdoor_salary_disc_list, width, color = 'plum')
-
-
 
 ax.set_ylabel('Salary')
 ax.set_title('Salary estimated by Glassdoor')
 ax.set_xticks(ind)
 ax.set_xticklabels(city_list)
 ax.tick_params(axis = 'x', rotation = 80)
-#ax.legend((s1,s2, s3,s4) ,  ('Salary', 'Salary adjusted by living cost', 'Glass Door Salary', 'Glass Door Salay adjusted by living cost'))
 ax.legend((s3,s4) ,  ('Salary estimated by Glassdoor', 'Salary estimated by Glassdoor with living cost adjustment'))
-
 fig.tight_layout()
-
 plt.show()
+'''
 
-
+#### Pool the salary of job with detailed description on indeed to two groups:  
+#from Texas and outside Texas
 a=[]
 b=[]
 for i, k in enumerate(salary_indeed_sample_dict):
-    print(i)
-    print(k)
-    print(living_cost_dict[k])
     if k[1] == 'TX':
         a = a + [e*100/living_cost_dict[k] for e in salary_indeed_sample_dict[k]]
     else:
@@ -261,9 +200,24 @@ for i, k in enumerate(salary_indeed_sample_dict):
 print("list of adjusted salary from cities in texas:", a)
 print("list of adjusted salaries from cities outside texas:", b)
 
+#### plot the hisogram of two groups together
+plt.style.use('ggplot')
+fig,ax = plt.subplots()
+bins = np.linspace(10000, 250000, 15)
+h1=ax.hist(a, bins, alpha=0.5, edgecolor='r', linewidth = 1.2)
+h2=ax.hist(b, bins,  alpha=0.5, edgecolor ='blue', linewidth = 1.2) 
+ax.set_title("Histogram of salaries from Indeed listing")
+ax.set_ylabel("Job count")
+ax.set_xlabel("Salary after living cost adjustment")
+#ax.legend((h1,h2), ('TX', 'Outside TX'))
+plt.show()
+
+
+#### Compute for variance of two group
 print("Variance of list in Texas: ", np.var(a))
 print("Variance outside Texas:", np.var(b))
 
+#### QQ plot to check normaility of two groups (in and out of Texas)
 fig,ax = plt.subplots()
 res = probplot(a, dist='norm', plot=plt)
 ax.set_title("Probplot for adjuted salary in Texas")
@@ -274,8 +228,8 @@ res = probplot(b, dist='norm', plot=plt)
 ax.set_title("Probplot for adjuted salary outside Texas")
 plt.show()
 
-a_shifted=[e-30949.668 for e in a]
 
+##### Two sample t test for two groups
 t, p = ttest_ind(a, b, equal_var=False)
 print("ttest_ind:            t = %g  p = %g" % (t, p))
 
@@ -295,21 +249,11 @@ print("ttest_ind 35k:            t = %g  p = %g" % (t, p))
 t, p = ttest_ind([e-40000 for e in a], b, equal_var=False)
 print("ttest_ind 40k:            t = %g  p = %g" % (t, p))
 
+##95% confidence interval for difference of sample mean of two groups
 cm = sms.CompareMeans(sms.DescrStatsW(a), sms.DescrStatsW(b))
 print (cm.tconfint_diff(usevar = 'unequal'))
 
 
-plt.style.use('ggplot')
-fig,ax = plt.subplots()
-bins = np.linspace(10000, 250000, 15)
-h1=ax.hist(a, bins, alpha=0.5, edgecolor='r', linewidth = 1.2)
-h2=ax.hist(b, bins,  alpha=0.5, edgecolor ='blue', linewidth = 1.2) 
-
-ax.set_title("Histogram of salaries from Indeed listing")
-ax.set_ylabel("Job count")
-ax.set_xlabel("Salary after living cost adjustment")
-#ax.legend((h1,h2), ('TX', 'Outside TX'))
-plt.show()
 
 
 
