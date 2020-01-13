@@ -31,9 +31,17 @@ Salary after living cost adjustment uses salary divided by the cost of living in
 ---
 # Analysis flow and code
 1. A list of cities with most job listings from ```indeed.com``` is used as the major cities for data scientists <img src="https://github.com/ivboh/data_science_positions/blob/master/img/list_of_cities_indeed_job_search.PNG"> 
+
+
 2. Job listings are web scraped from ```indeed.com``` , parsed and save to a ```Postgress``` data base as ```TABLE indeed``` if run ```python indeed_job_jk_list_scraper.py``` <img src="https://github.com/ivboh/data_science_positions/blob/master/img/job_listing_example_indeed.PNG">
+
+
 3. Cost of living index is scraped from ```areavibes.com```, parsed and add to the data base as ```TABLE living_cost``` if run ```python areavibes_living_cost_scraper.py``` <img src= "https://github.com/ivboh/data_science_positions/blob/master/img/austin_cost_of_living.PNG">
+
+
 4. Metadata of job listings at major cities on ```indeed.com``` are web scraped to add more information for initial EDA.  The information is save in ```TABLE refine_result2``` if run ```python indeed_refine_search_metadata_scraper.py```<img src= "https://github.com/ivboh/data_science_positions/blob/master/img/austin_indeed_refine_result_salary.PNG">
+
+
 5. Initial EDA and all the statistical analysis, tests and plots will be created if run ``python analysis_sql.py```
 
 
