@@ -102,7 +102,7 @@ I'd like to thank Joseph Gartner, Dan Rupp and Brent Goldberg for their guidance
 
 
 ---
-# Reference:
+# Reference
 
 ---
 # Web app
