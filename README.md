@@ -18,12 +18,12 @@ Occassionally I hear my data scientist friends relocate, or were unwilling to do
 ### Initial hypothesis
 The original hypothesis is that there is a city that's more affordable than any other city before the data was collected. It turned out that very few (~2%) job listings scraped from indeed posted salary for individual cities and I have less than 10 sample for half of cities.
 
-### EDA:
-EDA shows cities in Texas are similar in both salary and living cost, and all came out as winners. So I decide to pool data from Texas together and compare it to the rest of the states.
+### Exploratory Data Analysis:
+EDA shows cities in Texas are similar in both salary and living cost, and all came out as winners. The data from Texas is pooled together vs from outside.
 
 ### Final hypothesis:
 
-- Texas vs other states:the null hypothesis: Texas and other states have the same mean salary adjusted by living cost. The alternative hypothesis is that the average adjusted salary in Texas is higher than that in other states.
+- Texas vs other states:the null hypothesis is Texas and other states have the same mean salary adjusted by living cost, hence the alternative hypothesis is that the average adjusted salary in Texas is higher than that in other states.
   
 - How much is the lift:a confidence interval is constructed for the difference of average salaries in and out of Texas. And an A/B test was conducted to confirm the lift is significant.  
 
