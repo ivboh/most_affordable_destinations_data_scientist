@@ -16,7 +16,7 @@ Occassionally I hear my data scientist friends relocate, or were unwilling to do
 # Hypothesis and test:
 
 ### Initial hypothesis
-The original hypothesis is that there is a city that's more affordable than any other city before the data was collected. It turned out that very few (~2%) job listings scraped from indeed posted salary for individual cities and I have less than 10 sample for half of cities.
+The original hypothesis is that there is a city that's more affordable than any other city before the data was collected. It turned out that only a small portion (~2%) of job listings scraped from indeed posted salary for individual cities and less than 10 samples were collected for half of the cities, to one's disspointment.
 
 ### Exploratory Data Analysis:
 EDA shows cities in Texas are similar in both salary and living cost, and all came out as winners. The data from Texas is pooled together vs from outside.
