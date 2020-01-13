@@ -65,16 +65,16 @@ indeed.com areavibes.com glassdoor.com
 ---
 # Future work:
 
-
-
 ### take other factors into consideration: 
-amenities, crime, school and weather
+Weather for example since not everybody can survive the Texas summer.
+Other factors like amenities, crime and school district rating.
 
 ### study the correlation of key words: 
-job qualification, responsibilities and companies to find the most deployed technologies 
+Job qualification, responsibilities, companies and industry to find a correlation. 
 
 ---
-# Acknowledgements: I'd like to thank Joseph Gartner, Dan Rupp and Brent Goldberg for their guidance, feedback and technical support for this project.
+# Acknowledgements: 
+I'd like to thank Joseph Gartner, Dan Rupp and Brent Goldberg for their guidance, feedback and technical support for this project.
 
 # Web app:
 TBA
