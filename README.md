@@ -68,7 +68,8 @@ The number of pooled samples in and out of Texas are good (>30)
 
 ### Normality of samples
 QQ plot verified that the samples in and out of Texas can be modeled by normal distribution. KS tests can be applied if p-value is needed.
-
+<img src="https://github.com/ivboh/data_science_positions/blob/master/img/qq_plot_of_salary_texas.png">
+<img src="https://github.com/ivboh/data_science_positions/blob/master/img/qq_plot_of_salary_outside_texas.png">
 
 
 ---
