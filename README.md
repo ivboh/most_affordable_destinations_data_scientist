@@ -10,7 +10,7 @@ The cities in Texas are (highly significantly) more affordable for data scientis
 
 ---
 # Intruduction: background and motivation 
-Occassionally I hear my data scientist friends relocate, or were unwilling to do so, for new oppotunaties. The decision making process varies greatly, from being able to watch broadway shows every week to working with the smartest people they know of. But one factor remains one of the concerns: the living cost at the new location. The goal of my project is to find out the most affordable place to live for data scientists and by which amount if there is a winner.
+Occassionally I hear my data scientist friends relocated, or were unwilling to do so, for new oppotunaties. The decision making process is complecated and varies greatly, from being able to watch broadway shows every week to wanting to work with the smartest people they know of. But one factor remains a main concern: the living cost at the new location. The goal of my project is to find out the most affordable place to live for data scientists and by which amount if there is a winner.
 
 ---
 # Hypothesis and test
@@ -55,14 +55,8 @@ An A/B test of signicicance level ```alpha = 0.05``` confirms that the adjusted 
   
 ---
 # Data quality  
-### Number of samples
-The number of pooled samples in and out of Texas are good (>30)
-
-### Normality of samples
-QQ plot verified that the samples in and out of Texas can be modeled by normal distribution. KS tests can be applied if p-value is needed.
-
 ### Data consistency
-- The mean salaries was obtained in three ways: i) and iii) are more consistent. ii) has the most samples and iii) has one number for each city. The final statistical testing used samples from i) .
+- The mean salaries was obtained in three ways: i) and iii) are more consistent. ii) has the most samples and iii) has one number for each city. The final statistical testing used samples from i)
   1. taking the mean of salary posted on the web page for a single job on indeed.com
   2. taking the mean of metadata of salary in refined search results on indeed.com
   3. taking the number from glassdoor.com
@@ -70,16 +64,21 @@ QQ plot verified that the samples in and out of Texas can be modeled by normal d
 - The cost of living index from areavibes.com is calcuated from multiple neighborhood in the cities. The index as a single score is a robust and reliable. The methodology for the calculation is comparible between areavibes.com and nerdwallet.com 
   
 
+### Number of samples
+The number of pooled samples in and out of Texas are good (>30)
+
+### Normality of samples
+QQ plot verified that the samples in and out of Texas can be modeled by normal distribution. KS tests can be applied if p-value is needed.
+
+
 
 ---
 # Future work
 
-### take other factors into consideration
-Weather for example since not everybody can survive the Texas summer.
+- Take other factors into consideration: Weather for example since not everybody can survive the Texas summer.
 Other factors like amenities, crime and school district rating.
 
-### study the correlation of key words
-Job qualification, responsibilities, companies and industry to find a correlation. 
+- Study the correlation of key words: Job qualification, responsibilities, companies and industry to find a correlation. 
 
 ---
 # Acknowledgements 
