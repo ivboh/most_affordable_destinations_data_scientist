@@ -62,11 +62,12 @@ The number of pooled samples in and out of Texas are good (>30)
 QQ plot verified that the samples in and out of Texas can be modeled by normal distribution. KS tests can be applied if p-value is needed.
 
 ### Data consistency
-The mean salaries was obtained in three ways: 1 and 3 are more consistent. 2 has the most samples and 3 has one number for each city. The final statistical testing used samples from 1.
-1. taking the mean of salary posted on the web page for a single job on indeed.com
-2. taking the mean of metadata of salary in refined search results on indeed.com
-3. taking the number from glassdoor.com
-The cost of living index from areavibes.com is calcuated from multiple neighborhood in the cities. The index as a single score is a robust and reliable. The methodology for the calculation is comparible between areavibes.com and nerdwallet.com 
+- The mean salaries was obtained in three ways: 1 and 3 are more consistent. 2 has the most samples and 3 has one number for each city. The final statistical testing used samples from 1.
+  1. taking the mean of salary posted on the web page for a single job on indeed.com
+  2. taking the mean of metadata of salary in refined search results on indeed.com
+  3. taking the number from glassdoor.com
+
+- The cost of living index from areavibes.com is calcuated from multiple neighborhood in the cities. The index as a single score is a robust and reliable. The methodology for the calculation is comparible between areavibes.com and nerdwallet.com 
   
 
 
