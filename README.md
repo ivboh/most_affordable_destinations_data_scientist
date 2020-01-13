@@ -23,11 +23,9 @@ EDA shows cities in Texas are similar in both salary and living cost, and all ca
 
 ### Final hypothesis:
 
-- Texas vs other states:
-  The null hypothesis: Texas and other states have the same mean salary adjusted by living cost. The alternative hypothesis is that the average adjusted salary in Texas is higher than that in other states.
+- Texas vs other states:the null hypothesis: Texas and other states have the same mean salary adjusted by living cost. The alternative hypothesis is that the average adjusted salary in Texas is higher than that in other states.
   
-- How much is the lift:
-  A confidence interval is constructed for the difference of average salaries in and out of Texas. And an A/B test was conducted to confirm the lift is significant.  
+- How much is the lift:a confidence interval is constructed for the difference of average salaries in and out of Texas. And an A/B test was conducted to confirm the lift is significant.  
 
 
 ---
@@ -44,34 +42,28 @@ EDA shows cities in Texas are similar in both salary and living cost, and all ca
 # Result:
 The cities in Texas are extremely significantly more affordable for data scientists than those in other states with a ```p value = 10e-06``` . A 90% condidence inteval for the difference of mean salaries in and out Texas is ```($30,000 to $54,000)```. 
 
-
-
 An A/B test of signicicance level ```alpha = 0.05``` confirms that the adjusted salary in Texas is ```$34,000``` higher than the salaries outside Texas.
 
 
 ---
 # Data source:
-
 ### Data source: 
-indeed.com
-areavibes.com
-glassdoor.com
-nerdwallet.com
+- indeed.com
+- areavibes.com
+- glassdoor.com
+- nerdwallet.com
   
-
-### Data quality  
-1. The number of pooled samples in and out of Texas are good (>30)
-2. QQ plot verified that the samples in and out of Texas can be modeled by normal distribution. KS tests can be applied if p-value is needed.
-3. The mean salaries was obtained in three ways: 
--i taking the mean of salary posted on the web page for a single job on indeed.com
--ii taking the mean of metadata of salary in refined search results on indeed.com
--iii taking the number from glassdoor.com
-i) and iii) are more consistent. ii) has the most samples and iii) has one number for each city. The final statistical testing used samples from i).
-
-
-4. The cost of living index from areavibes.com is calcuated from multiple neighborhood in the cities. The index as a single score is a robust and reliable. The methodology for the calculation is comparible between areavibes.com and nerdwallet.com 
   
-
+---
+# Data quality:  
+- The number of pooled samples in and out of Texas are good (>30)
+- QQ plot verified that the samples in and out of Texas can be modeled by normal distribution. KS tests can be applied if p-value is needed.
+- The mean salaries was obtained in three ways: 1 and 3 are more consistent. 2 has the most samples and 3 has one number for each city. The final statistical testing used samples from 1.
+1. taking the mean of salary posted on the web page for a single job on indeed.com
+2. taking the mean of metadata of salary in refined search results on indeed.com
+3. taking the number from glassdoor.com
+- The cost of living index from areavibes.com is calcuated from multiple neighborhood in the cities. The index as a single score is a robust and reliable. The methodology for the calculation is comparible between areavibes.com and nerdwallet.com 
+  
 
 
 ---
