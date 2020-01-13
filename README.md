@@ -31,11 +31,10 @@ EDA shows cities in Texas are similar in both salary and living cost, and all ca
 ---
 # Analysis flow and code
 1. A list of cities with most job listings from ```indeed.com``` is used as the major cities for data scientists 
-2. Job listings are web scraped from ```indeed.com``` , parsed and save to a ```Postgress``` data base  using ```scrape.py``` as ``` TABLE indeed```
-3. Cost of living index is scraped from ```areavibes.com```, parsed and add to the data base as ```TABLE living_cost```
-4. Metadata of job listings at major cities on ```indeed.com``` and  ```glassdoor.com```  are also web scraped for assisting initial EDA  ```TABLE refine_result2```
-5. Initial EDA was done ``analysis.py```
-6. Two sample ```t-tesst``` , ```confidence inteval```  and  ```A\B test``` was done ```analysis.py```
+2. Job listings are web scraped from ```indeed.com``` , parsed and save to a ```Postgress``` data base as ```TABLE indeed``` if run ```python indeed_job_jk_list_scraper.py```
+3. Cost of living index is scraped from ```areavibes.com```, parsed and add to the data base as ```TABLE living_cost``` if run ```python areavibes_living_cost_scraper.py```
+4. Metadata of job listings at major cities on ```indeed.com``` are web scraped to add more information for initial EDA.  The information is save in ```TABLE refine_result2``` if run ```python indeed_refine_search_metadata_scraper.py``` 
+5. Initial EDA and all the statistical analysis, tests and plots will be created if run ``python analysis_sql.py```
 
 
 ---
