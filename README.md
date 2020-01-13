@@ -16,10 +16,10 @@ Occassionally I hear my data scientist friends relocated, or were unwilling to d
 # Hypothesis and test
 
 ### Initial hypothesis
-The original hypothesis is that there is a city that's more affordable than any other city before the data was collected. It turned out that only a small portion (~2%) of job listings scraped from indeed posted salary for individual cities and less than 10 samples were collected for half of the cities, to one's disspointment.
+The original hypothesis is that there is a city that's more affordable than any other city before the data was collected. It turned out that only a small portion (~2%) of job listings scraped from indeed posted salary for individual cities and less than 10 samples were collected for half of the cities, to one's disspointment. <img src = "https://github.com/ivboh/data_science_positions/blob/master/img/salary_posted_on_indeed_listing.png">
 
 ### Exploratory Data Analysis
-EDA shows cities in Texas are similar in both salary and living cost, and all came out as winners. The data from Texas is pooled together vs from outside.
+Salary after living cost adjustment uses salary divided by the cost of living index as percentage, i.e. if the salary is $100,000 and the cost of living index is 200,  the salary after adjustment if $100,000/222% = %50,000 EDA shows cities in Texas are similar in both salary and living cost, and all came out as winners. The data from Texas is pooled together vs from outside. <img src= "https://github.com/ivboh/data_science_positions/blob/master/img/salary_5mile_estimated_by_indeed.png">
 
 ### Final hypothesis
 
@@ -30,12 +30,12 @@ EDA shows cities in Texas are similar in both salary and living cost, and all ca
 
 ---
 # Analysis flow and code
-1. A list of cities with most job listings from ```indeed.com``` is used as the major cities for data scientists 
-2. Job listings are web scraped from ```indeed.com``` , parsed and save to a ```Postgress``` data base as ```TABLE indeed``` if run ```python indeed_job_jk_list_scraper.py```
+1. A list of cities with most job listings from ```indeed.com``` is used as the major cities for data scientists <img src="https://github.com/ivboh/data_science_positions/blob/master/img/list_of_cities_indeed_job_search.PNG"> 
+2. Job listings are web scraped from ```indeed.com``` , parsed and save to a ```Postgress``` data base as ```TABLE indeed``` if run ```python indeed_job_jk_list_scraper.py``` <img src="https://github.com/ivboh/data_science_positions/blob/master/img/job_listing_example_indeed.PNG">
 3. Cost of living index is scraped from ```areavibes.com```, parsed and add to the data base as ```TABLE living_cost``` if run ```python areavibes_living_cost_scraper.py``` <img src= "https://github.com/ivboh/data_science_positions/blob/master/img/austin_cost_of_living.PNG">
-4. Metadata of job listings at major cities on ```indeed.com``` are web scraped to add more information for initial EDA.  The information is save in ```TABLE refine_result2``` if run ```python indeed_refine_search_metadata_scraper.py```
-5. Salary after living cost adjustment uses salary divided by the cost of living index as percentage, i.e. if the salary is $100,000 and the cost of living index is 200,  the salary after adjustment if $100,000/222% = %50,000
-6. Initial EDA and all the statistical analysis, tests and plots will be created if run ``python analysis_sql.py```
+4. Metadata of job listings at major cities on ```indeed.com``` are web scraped to add more information for initial EDA.  The information is save in ```TABLE refine_result2``` if run ```python indeed_refine_search_metadata_scraper.py```<img src= "https://github.com/ivboh/data_science_positions/blob/master/img/austin_indeed_refine_result_salary.PNG">
+5. Initial EDA and all the statistical analysis, tests and plots will be created if run ``python analysis_sql.py```
+
 
 
 ---
@@ -46,12 +46,18 @@ An A/B test of signicicance level ```alpha = 0.05``` confirms that the adjusted 
 
 
 ---
-# Data source
+# Data source and tools
+
+### Data source
 - indeed.com
 - areavibes.com
 - glassdoor.com
 - nerdwallet.com
-  
+### Tools
+- Web scraper on AWS EC2
+- BeautifulSoup web parser
+- Postgres data base
+- Python libraries for EDA and statistical testing
   
 ---
 # Data quality  
@@ -61,7 +67,7 @@ An A/B test of signicicance level ```alpha = 0.05``` confirms that the adjusted 
   2. taking the mean of metadata of salary in refined search results on indeed.com
   3. taking the number from glassdoor.com
 
-- The cost of living index from areavibes.com is calcuated from multiple neighborhood in the cities. The index as a single score is a robust and reliable. The methodology for the calculation is comparible between areavibes.com and nerdwallet.com 
+- The cost of living index from areavibes.com is calcuated from multiple neighborhood in the cities. The index as a single score is a robust and reliable. The methodology for the calculation is comparible between areavibes.com and nerdwallet.com <img src="https://github.com/ivboh/data_science_positions/blob/master/img/austin_neighborhood.PNG">
   
 
 ### Number of samples
