@@ -53,11 +53,23 @@ An A/B test of signicicance level ```alpha = 0.05``` confirms that the adjusted 
 # Data source:
 
 ### Data source: 
-indeed.com areavibes.com glassdoor.com
+indeed.com
+areavibes.com
+glassdoor.com
+nerdwallet.com
   
 
 ### Data quality  
- 
+1. The number of pooled samples in and out of Texas are good (>30)
+2. QQ plot verified that the samples in and out of Texas can be modeled by normal distribution. KS tests can be applied if p-value is needed.
+3. The mean salaries was obtained in three ways: 
+-i taking the mean of salary posted on the web page for a single job on indeed.com
+-ii taking the mean of metadata of salary in refined search results on indeed.com
+-iii taking the number from glassdoor.com
+i) and iii) are more consistent. ii) has the most samples and iii) has one number for each city. The final statistical testing used samples from i).
+
+
+4. The cost of living index from areavibes.com is calcuated from multiple neighborhood in the cities. The index as a single score is a robust and reliable. The methodology for the calculation is comparible between areavibes.com and nerdwallet.com 
   
 
 
