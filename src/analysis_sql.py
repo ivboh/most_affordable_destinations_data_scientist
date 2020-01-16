@@ -201,15 +201,18 @@ print("list of adjusted salary from cities in texas:", a)
 print("list of adjusted salaries from cities outside texas:", b)
 
 #### plot the hisogram of two groups together
-plt.style.use('ggplot')
+#plt.style.use('ggplot')
 fig,ax = plt.subplots()
 bins = np.linspace(10000, 250000, 15)
-h1=ax.hist(a, bins, alpha=0.5, edgecolor='r', linewidth = 1.2)
-h2=ax.hist(b, bins,  alpha=0.5, edgecolor ='blue', linewidth = 1.2) 
+h1 = ax.hist(a, bins, alpha=0.5, edgecolor='r', linewidth = 1.2, label="TX")
+h2 = ax.hist(b, bins,  alpha=0.5, edgecolor ='blue', linewidth = 1.2, label="Outside TX")
+#h1[1].set_label("111")
+#h2[1].set_label("222")
 ax.set_title("Histogram of salaries from Indeed listing")
 ax.set_ylabel("Job count")
 ax.set_xlabel("Salary after living cost adjustment")
-#ax.legend((h1,h2), ('TX', 'Outside TX'))
+#plt.legend((h1,h2),("TX", "Outside TX"))
+ax.legend()
 plt.show()
 
 
