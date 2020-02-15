@@ -1,42 +1,42 @@
 # The Most Affordable Destinations for Data Scientists?
 
-<img src="http://alabamamaps.ua.edu/contemporarymaps/usa/basemaps/mjcityzmc.jpg">
+<img src="https://github.com/ivboh/most_affordable_destinations_data_scientist/blob/master/img/title.png">
 
 __Abstract:__
-This project is to find out the salary adjusted by the living cost at popular destinations for data scientists. I web scraped 14000+ job listings from indeed.com by Jan 02 2020, plus the cost of living index of cities in 2019 from areavibes.com. The analysis was done using two sample t-test, more specifically a A/B test to find out the lift between salaries in Texas and other states.
+This project aimed to compare the average salary for data scientists with living cost adjustment. 14000+ job listings by Jan 02 2020 and the cost of living index were web scraped. A two sample t-test and furthermore an A/B test were applied to compare the salaries in Texas and in other states.
 
 __Conclusion:__
-The cities in Texas are (highly significantly) more affordable for data scientists than those in other states. An A/B test with significance level of 0.05 shows that the adjusted salary in Texas is $34,000 higher than the salaries outside Texas. The take home message: a data scientist need a salary rise at least $34,000 on average if move from Texas to another state.
+The salaries after adjustment are (highly significantly) higher for DS in Texas than in other states. An A/B test at 0.05 significance level showed that the adjusted salary in Texas is $34,000 higher than in other states. That's saying a salary increase of $34,000 should break even when data scientists move from Texas to another state.
 
 ---
 # Intruduction: background and motivation 
-Occassionally I hear my data scientist friends relocated, or were unwilling to do so, for new oppotunaties. The decision making process is complecated and varies greatly, from being able to watch broadway shows every week to wanting to work with the smartest people they know of. But one factor remains a main concern: the living cost at the new location. The goal of my project is to find out the most affordable place to live for data scientists and by which amount if there is a winner.
+We hear data scientist friends relocate for new oppotunaties. The decision making process is complicated, from being able to watch broadway shows every week, to work with the smartest people. And one factor is often considered: the living cost. The goal of this project is to find the most affordable places to live for DS and the amount of lift if there is a winning city.
 
 ---
 # Hypothesis and test
 
 ### Initial hypothesis
-The original hypothesis is that there is a city that's more affordable than any other city before the data was collected. It turned out that only a small portion (~2%) of job listings scraped from indeed posted salary for individual cities and less than 10 samples were collected for half of the cities, to one's disspointment. <img src = "https://github.com/ivboh/data_science_positions/blob/master/img/salary_posted_on_indeed_listing.png">
+The original hypothesis I'd like to test was there is the one city more affordable than any other ones, however only ~300 job posts (~2%) scraped had a salary. The data collected for a single city is sparse and I have less than five samples for >90% cities. Therefore, the data grouped by cities were pooled into Texas and non-Texas after initial exploratory data analysis. The new hypothesis was fomulated as the average salary for DS are higher in Texas than in other states. <img src = "https://github.com/ivboh/data_science_positions/blob/master/img/salary_posted_on_indeed_listing.png">
 
 ### Exploratory Data Analysis
-Salary after living cost adjustment uses salary divided by the cost of living index as percentage, i.e. if the salary is $100,000 and the cost of living index is 200,  the salary after adjustment if $100,000/222% = %50,000 EDA shows cities in Texas are similar in both salary and living cost, and all came out as winners. The data from Texas is pooled together vs from outside. <img src= "https://github.com/ivboh/data_science_positions/blob/master/img/salary_5mile_estimated_by_indeed.png">
+The salary after adjustment is calculated as dividing the listed salary divided by the living cost index, e.g. if the salary is $100,000 on the job listing and the cost of living index is 200, the salary after adjustment is $100,000/200% = %50,000. The initial EDA showed the cities in Texas are similar both in salary range and living cost, and Austin, Dallas and Houston came out top. As a result the data from Texas is pooled together vs in other states. 
 
 ### Final hypothesis
 
-- Texas vs other states:the null hypothesis is Texas and other states have the same mean salary adjusted by living cost, hence the alternative hypothesis is that the average adjusted salary in Texas is higher than that in other states.
+- Texas vs other states:the null hypothesis is that the mean salary are equal in Texas and outside Texas. The alternative hypothesis is that the average adjusted salary in Texas is higher than that in other states.
   
-- How much is the lift:a confidence interval is constructed for the difference of average salaries in and out of Texas. And an A/B test was conducted to confirm the lift is significant.  
+- How much is the lift:a confidence interval is constructed for the difference of average salary. And an A/B test confirmed the lift is significant.  
 
 
 ---
 # Analysis flow and code
-1. A list of cities with most job listings from ```indeed.com``` is used as the major cities for data scientists <img src="https://github.com/ivboh/data_science_positions/blob/master/img/list_of_cities_indeed_job_search.PNG"> 
+1. A list of cities where most jobs are located at ```indeed.com``` is used as the popular destinations <img src="https://github.com/ivboh/data_science_positions/blob/master/img/list_of_cities_indeed_job_search.PNG"> 
 
 
 2. Job listings are web scraped from ```indeed.com``` , parsed and save to a ```Postgress``` data base as ```TABLE indeed``` if run ```python indeed_job_jk_list_scraper.py``` <img src="https://github.com/ivboh/data_science_positions/blob/master/img/job_listing_example_indeed.PNG">
 
 
-3. Cost of living index is scraped from ```areavibes.com```, parsed and add to the data base as ```TABLE living_cost``` if run ```python areavibes_living_cost_scraper.py``` <img src= "https://github.com/ivboh/data_science_positions/blob/master/img/austin_cost_of_living.PNG">
+3. Cost of living index is scraped from ```areavibes.com```, parsed and add to the data base as ```TABLE living_cost``` if run ```python areavibes_living_cost_scraper.py``` 
 
 
 4. Metadata of job listings at major cities on ```indeed.com``` are web scraped to add more information for initial EDA.  The information is save in ```TABLE refine_result2``` if run ```python indeed_refine_search_metadata_scraper.py```<img src= "https://github.com/ivboh/data_science_positions/blob/master/img/austin_indeed_refine_result_salary.PNG">
@@ -51,6 +51,9 @@ Salary after living cost adjustment uses salary divided by the cost of living in
 The cities in Texas are extremely significantly more affordable for data scientists than those in other states with a ```p value = 10e-06``` . A 95% condidence inteval for the difference of mean salaries in and out Texas is ```$31k to $65k```. 
 
 An A/B test of signicicance level ```alpha = 0.05``` confirms that the adjusted salary in Texas is ```$34,000``` higher than the salaries outside Texas.
+
+- <img src= "https://github.com/ivboh/data_science_positions/blob/master/img/hist_indeed_posted_salary_tx_vs_outside.png">
+
 
 
 ---
@@ -75,12 +78,12 @@ An A/B test of signicicance level ```alpha = 0.05``` confirms that the adjusted 
   2. taking the mean of metadata of salary in refined search results on indeed.com
   3. taking the number from glassdoor.com
 
-- The cost of living index from areavibes.com is calcuated from multiple neighborhood in the cities. The index as a single score is a robust and reliable. The methodology for the calculation is comparible between areavibes.com and nerdwallet.com <img src="https://github.com/ivboh/data_science_positions/blob/master/img/austin_neighborhood.PNG">
+- The cost of living index from areavibes.com is calcuated using reliable methodology and is comparible with nerdwallet.com 
   
 
 ### Number of samples
 - The number of pooled samples in and out of Texas are good (>30)
-- <img src= "https://github.com/ivboh/data_science_positions/blob/master/img/hist_indeed_posted_salary_tx_vs_outside.png">
+- <img src= "https://github.com/ivboh/data_science_positions/blob/master/img/salary_5mile_estimated_by_indeed.png">
 
 ### Normality of samples
 - QQ plot verified that the samples in and out of Texas can be modeled by normal distribution. KS tests can be applied if p-value is needed.
@@ -101,9 +104,4 @@ Other factors like amenities, crime and school district rating.
 I'd like to thank Joseph Gartner, Dan Rupp and Brent Goldberg for their guidance, feedback and technical support for this project.
 
 
----
-# Reference
 
----
-# Web app
-TBA
