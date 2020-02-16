@@ -1,4 +1,4 @@
-# The Most Affordable Destinations for Data Scientists?
+# The Most Affordable Destination for Data Scientists?
 
 <img src="https://github.com/ivboh/most_affordable_destinations_data_scientist/blob/master/img/title.png">
 
@@ -25,26 +25,7 @@ The salary after adjustment is calculated as dividing the listed salary divided 
 
 - Texas vs other states:the null hypothesis is that the mean salary are equal in Texas and outside Texas. The alternative hypothesis is that the average adjusted salary in Texas is higher than that in other states.
   
-- How much is the lift:a confidence interval is constructed for the difference of average salary. And an A/B test confirmed the lift is significant.  
-
-
----
-# Analysis flow and code
-1. A list of cities where most jobs are located at ```indeed.com``` is used as the popular destinations <img src="https://github.com/ivboh/data_science_positions/blob/master/img/list_of_cities_indeed_job_search.PNG"> 
-
-
-2. Job listings are web scraped from ```indeed.com``` , parsed and save to a ```Postgress``` data base as ```TABLE indeed``` if run ```python indeed_job_jk_list_scraper.py``` <img src="https://github.com/ivboh/data_science_positions/blob/master/img/job_listing_example_indeed.PNG">
-
-
-3. Cost of living index is scraped from ```areavibes.com```, parsed and add to the data base as ```TABLE living_cost``` if run ```python areavibes_living_cost_scraper.py``` 
-
-
-4. Metadata of job listings at major cities on ```indeed.com``` are web scraped to add more information for initial EDA.  The information is save in ```TABLE refine_result2``` if run ```python indeed_refine_search_metadata_scraper.py```<img src= "https://github.com/ivboh/data_science_positions/blob/master/img/austin_indeed_refine_result_salary.PNG">
-
-
-5. Initial EDA and all the statistical analysis, tests and plots will be created if run ``python analysis_sql.py```
-
-
+- How much is the lift: a confidence interval is constructed for the difference of average salary. And an A/B test confirmed the lift is significant.  
 
 ---
 # Result
@@ -54,6 +35,22 @@ An A/B test of signicicance level ```alpha = 0.05``` confirms that the adjusted 
 
 - <img src= "https://github.com/ivboh/data_science_positions/blob/master/img/hist_indeed_posted_salary_tx_vs_outside.png">
 
+
+---
+# Analysis flow and code
+1. A list of top cities for DS jobs are found on ```indeed.com```  <img src="https://github.com/ivboh/data_science_positions/blob/master/img/list_of_cities_indeed_job_search.PNG"> 
+
+
+2. Job listings were web scraped, parsed with Beautifulsoup and saved to a ```PostgreSQL``` data base as ```TABLE indeed``` with ```python indeed_job_jk_list_scraper.py``` <img src="https://github.com/ivboh/data_science_positions/blob/master/img/job_listing_example_indeed.PNG">
+
+
+3. The cost of living index is scraped from ```areavibes.com```, parsed and added to the database as ```TABLE living_cost``` with  ```python areavibes_living_cost_scraper.py```
+
+
+4. Metadata of job listings and salary brackets on ```indeed.com``` were scraped to add more information for initial EDA.  The information is saved as ```TABLE refine_result2``` with ```python indeed_refine_search_metadata_scraper.py```<img src= "https://github.com/ivboh/data_science_positions/blob/master/img/austin_indeed_refine_result_salary.PNG">
+
+
+5. Initial EDA and all the statistical analysis, tests and plots were created with ``python analysis_sql.py```
 
 
 ---
@@ -94,10 +91,9 @@ An A/B test of signicicance level ```alpha = 0.05``` confirms that the adjusted 
 ---
 # Future work
 
-- Take other factors into consideration: Weather for example since not everybody can survive the Texas summer.
-Other factors like amenities, crime and school district rating.
+- Take other factors into consideration: weather since not everyone can survive the Texas heat in summer, amenities, crime and school district rating for example.
 
-- Study the correlation of key words: Job qualification, responsibilities, companies and industry to find a correlation. 
+- Study the correlation of key words: job qualification, responsibilities, companies and industry. 
 
 ---
 # Acknowledgements 
