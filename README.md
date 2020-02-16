@@ -16,16 +16,18 @@ We hear data scientist friends relocate for new oppotunaties. The decision makin
 # Hypothesis and test
 
 ### Initial hypothesis
-The original hypothesis I'd like to test was there is the one city more affordable than any other ones, however only ~300 job posts (~2%) scraped had a salary. The data collected for a single city is sparse and I have less than five samples for >90% cities. Therefore, the data grouped by cities were pooled into Texas and non-Texas after initial exploratory data analysis. The new hypothesis was fomulated as the average salary for DS are higher in Texas than in other states. <img src = "https://github.com/ivboh/data_science_positions/blob/master/img/salary_posted_on_indeed_listing.png">
+The original hypothesis I'd like to test was there is the one city more affordable than any other ones, however only ~300 job posts (~2%) scraped had a salary posted on it. Looking at the sample size for each city, the sparsity of data collected for a single city is problematic as 9/15 major cities have fewer than 10 samples. Few data samples will fail the normality assumption for the hypothesis of two sample t-test. As a result the data collected by city were pooled and grouped into Texas and non-Texas after initial exploratory data analysis. The new hypothesis was fomulated as the average salary for DS are higher in Texas than in other states. <img src = "https://github.com/ivboh/data_science_positions/blob/master/img/salary_posted_on_indeed_listing.png">
 
 ### Exploratory Data Analysis
-The salary after adjustment is calculated as dividing the listed salary divided by the living cost index, e.g. if the salary is $100,000 on the job listing and the cost of living index is 200, the salary after adjustment is $100,000/200% = %50,000. The initial EDA showed the cities in Texas are similar both in salary range and living cost, and Austin, Dallas and Houston came out top. As a result the data from Texas is pooled together vs in other states. 
+The salary after adjustment is calculated as dividing the listed salary by the living cost index, e.g. if the salary is $100,000 on the job listing and the cost of living index is 200, the salary after adjustment is calculated as $100,000/200% = $50,000. The initial EDA showed the cities in Texas are similar both in salary range and living cost, and Austin, Dallas and Houston came out top with highest adjusted salaries. Therefore the data from Texas is pooled together vs in other states. 
 
 ### Final hypothesis
 
-- Texas vs other states:the null hypothesis is that the mean salary are equal in Texas and outside Texas. The alternative hypothesis is that the average adjusted salary in Texas is higher than that in other states.
+- Texas vs other states
+The null hypothesis is that the mean salary are equal in Texas and outside Texas and the alternative hypothesis is that the average adjusted salary in Texas is higher than that in other states.
   
-- How much is the lift: a confidence interval is constructed for the difference of average salary. And an A/B test confirmed the lift is significant.  
+- How much is the lift
+A confidence interval is constructed for the difference of average salary. And an A/B test confirmed the lift is significant.  
 
 ---
 # Result
@@ -70,13 +72,12 @@ An A/B test of signicicance level ```alpha = 0.05``` confirms that the adjusted 
 ---
 # Data quality  
 ### Data consistency
-- The mean salaries was obtained in three ways: i) and iii) are more consistent. ii) has the most samples and iii) has one number for each city. The final statistical testing used samples from i)
+- The average salaries was obtained in three ways: i) and iii) are more consistent. ii) has the most samples and iii) has one number for each city. The final statistical testing used samples from i)
   1. taking the mean of salary posted on the web page for a single job on indeed.com
   2. taking the mean of metadata of salary in refined search results on indeed.com
   3. taking the number from glassdoor.com
 
 - The cost of living index from areavibes.com is calcuated using reliable methodology and is comparible with nerdwallet.com 
-  
 
 ### Number of samples
 - The number of pooled samples in and out of Texas are good (>30)
